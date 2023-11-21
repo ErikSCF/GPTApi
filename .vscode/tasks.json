@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/GPTApi.sln",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary;ForceNoAlign"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Azure - Publish",
+      "command": "az",
+      "type": "shell",
+      "args": [
+        "webapp",
+        "up",
+        "-n",
+        "cfGPTApi",
+        "--resource-group",
+        "Erik_ResourceGroup",
+        "--subscription",
+        "b91357c6-41d4-451b-b6d2-29e73c5198f8",
+        "--plan",
+        "ThingsAIAPIPlan",
+        "--location",
+        "southcentralus"
+
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
